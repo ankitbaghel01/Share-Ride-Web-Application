@@ -1,0 +1,262 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px; /* Adjust width as needed */
+  background-color: #333;
+  color: #ffffff;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center; /* Center items horizontally */
+  height: 100%;
+  margin-top: 40px; /* Adjust margin-top to push content slightly below the top */
+}
+
+.navbar-logo a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 10px; /* Add margin below the logo */
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust gap between links */
+}
+
+.navbar-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: large;
+  position: relative; /* Add relative position for the ::after pseudo-element */
+  display: flex;
+  font-size: 18px;
+  width: 100%;
+  border-radius: 30px;
+  transition: background-color 0.3s, border-radius 0.3s;
+  /* margin: 10px 0; */
+}
+
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Position the line below the text */
+  width: 0;
+  height: 2px; /* Height of the line */
+  background-color: #ffffff;
+  transition: width 0.3s; /* Add transition effect */
+}
+
+.navbar-links a:hover::after {
+  width: 100%; /* Expand the line on hover */
+}
+
+.navbar-right {
+  margin-top: auto; /* Push footer to bottom */
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+
+.profile-image-container {
+  position: relative;
+  background-color: #fff;
+  width: 40px; /* Adjust image size as needed */
+  height: 40px; /* Adjust image size as needed */
+  border-radius: 50%; /* Make it circular */
+}
+
+
+.profile-letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #000000;
+  font-weight: bold;
+}
+
+
+
+
+.bottom-btn{
+  position: fixed;
+  bottom: 1%;
+  left: 2%;
+}
+
+
+.sidebar-toggle {
+  display: flex;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+.sidebar-toggle  a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: large;
+  position: relative; /* Add relative position for the ::after pseudo-element */
+  display: flex;
+  font-size: 18px;
+  width: 100%;
+  border-radius: 30px;
+  transition: background-color 0.3s, border-radius 0.3s;
+  /* margin: 10px 0; */
+}
+
+
+/* Media query for mobile devices */
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    margin-top: 0;
+  }
+
+  .navbar-links {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+}
+ 
+
+@media screen and (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    background-color: #333;
+    width: 100%;
+    left: 0;
+    transition: all 0.3s ease-in;
+  }
+
+  .navbar{
+    display: none;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding-top: 60px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-250px);
+  }
+     
+
+  .sidebar .profile-image-container {
+    position: relative;
+    left: 15%;
+   
+    background-color: #fff;
+    width: 40px; /* Adjust image size as needed */
+    height: 40px; /* Adjust image size as needed */
+    border-radius: 50%; /* Make it circular */
+  }
+  
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar ul li {
+    padding: 10px;
+  }
+  .sidebar ul li .Logout{
+    position: fixed;
+    bottom: 2%;
+    left: 4%;
+  }
+  .sidebar ul li a {
+    display: flex;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1624px) {
+  .sidebar {
+    display: none;
+  }
+}
